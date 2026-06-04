@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WATERMILKTEA - Đặt Trà Sữa Trực Tuyến</title>
-    <link href="site.css" rel="stylesheet" type="text/css" />
+    <link href="site.css?v=2.0" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
