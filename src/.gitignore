@@ -1,0 +1,27 @@
+# Visual Studio ignores
+.vs/
+[Db]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+# SQL Server files (localdb databases)
+App_Data/*.mdf
+App_Data/*.ldf
+*.mdf
+*.ldf
+
+# Packages
+packages/
+
+# Temporary files
+*.tmp
+*.log

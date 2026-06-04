@@ -1,0 +1,104 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WaterMilkTea.Site" %>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WATERMILKTEA - Đặt Trà Sữa Trực Tuyến</title>
+    <link href="site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <nav class="navbar">
+                <a href="Default.aspx" class="nav-logo">
+                    ✨ WATERMILKTEA
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="Default.aspx" class="nav-link">Cửa hàng</a></li>
+                    
+                    <asp:PlaceHolder ID="phCustomerMenu" runat="server" Visible="false">
+                        
+                    </asp:PlaceHolder>
+                    
+                    <asp:PlaceHolder ID="phAdminMenu" runat="server" Visible="false">
+                        <li><a href="Admin.aspx" class="nav-link" style="color: var(--pastel-purple-dark); font-weight: 600;">Quản trị Admin</a></li>
+                    </asp:PlaceHolder>
+                </ul>
+                
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    
+                    <a href="Default.aspx#giohang" class="cart-badge nav-link">
+                        🛒 Giỏ hàng
+                        <span class="cart-count">
+                            <asp:Literal ID="litCartCount" runat="server">0</asp:Literal>
+                        </span>
+                    </a>
+
+                    <asp:MultiView ID="mvAuthStatus" runat="server" ActiveViewIndex="0">
+                        <asp:View ID="vGuest" runat="server">
+                            <a href="Auth.aspx?action=login" class="nav-btn nav-btn-login">Đăng Nhập</a>
+                            <a href="Auth.aspx?action=register" class="nav-btn nav-btn-register">Đăng Ký</a>
+                        </asp:View>
+                        <asp:View ID="vLoggedIn" runat="server">
+                            <span class="user-badge">
+                                👤 <asp:Literal ID="litUserFullName" runat="server"></asp:Literal>
+                                (<asp:Literal ID="litUserRole" runat="server"></asp:Literal>)
+                            </span>
+                            <asp:LinkButton ID="lnkLogout" runat="server" OnClick="lnkLogout_Click" CssClass="nav-btn nav-btn-login" CausesValidation="false">Đăng Xuất</asp:LinkButton>
+                        </asp:View>
+                    </asp:MultiView>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h4>✨ WATERMILKTEA</h4>
+                    <p>Thương hiệu trà sữa trực tuyến hàng đầu, mang đến những hương vị ngọt ngào và trải nghiệm tuyệt vời nhất cho bạn.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="Default.aspx">Cửa hàng</a></li>
+                        <li><a href="Default.aspx#giohang">Giỏ hàng</a></li>
+                        <li><a href="Auth.aspx?action=login">Đăng nhập</a></li>
+                        <li><a href="Auth.aspx?action=register">Đăng ký</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Địa chỉ cửa hàng</h4>
+                    <div class="footer-info-item">
+                        <span>📍</span>
+                        <span>126 Nguyễn Thiện Thành, Phường Hòa Thuận, tỉnh Vĩnh Long</span>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Thông tin liên hệ</h4>
+                    <div class="footer-info-item">
+                        <span>📞</span>
+                        <span>Hotline: 1900 6868</span>
+                    </div>
+                    <div class="footer-info-item">
+                        <span>✉️</span>
+                        <span>Email: contact@watermilktea.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <%= DateTime.Now.Year %> - 💜 WATERMILKTEA.</p>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
